@@ -2,14 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-const Footer = (props) => {
-
+const Footer = () => {
     const ClickHandler = () => {
         window.scrollTo(10, 0);
-    }
-
-    const SubmitHandler = (e) => {
-        e.preventDefault()
     }
 
     return (

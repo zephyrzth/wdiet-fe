@@ -10,13 +10,14 @@ import { Link, useNavigate } from "react-router-dom";
 
 import './style.scss';
 
-const LoginPage = (props) => {
+const LoginPage = () => {
     const push = useNavigate()
     const [value, setValue] = useState({
         email: 'user@gmail.com',
         password: '123456',
         remember: false,
     });
+    console.log('value', value)
 
     const changeHandler = (e) => {
         setValue({ ...value, [e.target.name]: e.target.value });
@@ -30,8 +31,6 @@ const LoginPage = (props) => {
     const [validator] = React.useState(new SimpleReactValidator({
         className: 'errorMessage'
     }));
-
-
 
     const submitForm = (e) => {
         e.preventDefault();
@@ -47,6 +46,7 @@ const LoginPage = (props) => {
             const email = value.email;
 
             if (email.match(userRegex)) {
+                sessionStorage.setItem("email", email);
                 toast.success('successfully Login on Wediet!');
                 push('/home');
             }
@@ -55,6 +55,7 @@ const LoginPage = (props) => {
             toast.error('Empty field is not allowed!');
         }
     };
+
     return (
         <Grid className="loginWrapper">
             <Grid className="loginForm">
@@ -66,11 +67,11 @@ const LoginPage = (props) => {
                             <TextField
                                 className="inputOutline"
                                 fullWidth
-                                placeholder="E-mail"
+                                placeholder="Email"
                                 value={value.email}
                                 variant="outlined"
                                 name="email"
-                                label="E-mail"
+                                label="Email"
                                 InputLabelProps={{
                                     shrink: true,
                                 }}

@@ -5,10 +5,35 @@ import MobileMenu from '../MobileMenu/MobileMenu'
 
 
 const Header = (props) => {
+  const initialEmail = sessionStorage.getItem("email");
+  const [email, setEmail] = React.useState(initialEmail)
 
-  const ClickHandler = () => {
-    window.scrollTo(10, 0);
+  const handleOnClickLogoutButton = () => {
+    setEmail('');
+    sessionStorage.removeItem("email");
   }
+
+  const renderLoginButton = () => (
+    <NavLink className="theme-btn" to="/login"><span className="text">Login</span> <span className="mobile">
+      <i className="fi flaticon-user"></i>
+    </span></NavLink>
+  );
+
+  const renderLogoutButton = () => (
+    <Link
+      activeClass="active"
+      className="theme-btn"
+      onClick={handleOnClickLogoutButton}
+      spy={true} smooth={true} duration={500}
+    >
+      <span className="text">Logout</span><span className="mobile">
+        <i className="fi flaticon-user"></i>
+      </span></Link>
+  )
+
+  const renderProfileButton = () => (
+    <NavLink activeClass="active" to="/profile" spy={true} smooth={true} duration={500} >Profile</NavLink>
+  )
 
   return (
     <header id="header">
@@ -33,50 +58,21 @@ const Header = (props) => {
                   <ul className="nav navbar-nav mb-2 mb-lg-0">
                     <li className="menu-item-has-children">
                       <Link activeClass="active" to="home" spy={true} smooth={true} duration={500} >Home</Link>
-                      <ul className="sub-menu">
-                        <li><NavLink onClick={ClickHandler} to="/home">Home style 1</NavLink></li>
-                        <li><NavLink onClick={ClickHandler} to="/home2">Home style 2</NavLink></li>
-                        <li><NavLink onClick={ClickHandler} to="/home3">Home style 3</NavLink></li>
-                        <li><NavLink onClick={ClickHandler} to="/home4">Home Static Hero</NavLink></li>
-                        <li><NavLink onClick={ClickHandler} to="/home5">Home Box Style</NavLink></li>
-                        <li><NavLink onClick={ClickHandler} to="/home6">Home particles Effect</NavLink></li>
-                        <li><NavLink onClick={ClickHandler} to="/home7">Home Video Banar</NavLink></li>
-                        <li><NavLink onClick={ClickHandler} to="/invitation">Invitation</NavLink></li>
-                      </ul>
                     </li>
-                    <li><Link activeClass="active" to="couple" spy={true} smooth={true} duration={500} >Couple</Link></li>
-                    <li><Link activeClass="active" to="story" spy={true} smooth={true} duration={500} >Story</Link></li>
-                    <li><Link activeClass="active" to="gallery" spy={true} smooth={true} duration={500} >Gallery</Link></li>
-                    <li><Link activeClass="active" to="RSVP" spy={true} smooth={true} duration={500} >RSVP</Link></li>
-                    <li><Link activeClass="active" to="event" spy={true} smooth={true} duration={500} >Events</Link></li>
-                    <li className="menu-item-has-children">
-                      <NavLink onClick={ClickHandler} to="/blog">Blog</NavLink>
-                      <ul className="sub-menu">
-                        <li><NavLink onClick={ClickHandler} to="/blog">Blog right sidebar</NavLink></li>
-                        <li><NavLink onClick={ClickHandler} to="/blog-left-sidebar">Blog left sidebar</NavLink></li>
-                        <li><NavLink onClick={ClickHandler} to="/blog-fullwidth">Blog fullwidth</NavLink></li>
-                        <li className="menu-item-has-children">
-                          <NavLink onClick={ClickHandler} to="/">Blog details</NavLink>
-                          <ul className="sub-menu">
-                            <li><NavLink onClick={ClickHandler} to="/blog-single/1">Blog details right sidebar</NavLink>
-                            </li>
-                            <li><NavLink onClick={ClickHandler} to="/blog-single-left-sidebar/1">Blog details left
-                              sidebar</NavLink></li>
-                            <li><NavLink onClick={ClickHandler} to="/blog-single-fullwidth/1">Blog details
-                              fullwidth</NavLink></li>
-                          </ul>
-                        </li>
-                      </ul>
+                    <li><NavLink activeClass="active" to="/restaurant" spy={true} smooth={true} duration={500} >Restaurant</NavLink></li>
+                    <li><NavLink activeClass="active" to="/about-us" spy={true} smooth={true} duration={500} >About Us</NavLink></li>
+                    <li>
+                      {email && renderProfileButton()}
                     </li>
                   </ul>
-
                 </div>
               </div>
               <div className="col-lg-2 col-md-2 col-2">
                 <div className="header-right">
-                  <NavLink className="theme-btn" to="/rsvp"><span className="text">Attend Now</span> <span className="mobile">
-                    <i className="fi flaticon-user"></i>
-                  </span></NavLink>
+                  {email
+                    ? renderLogoutButton()
+                    : renderLoginButton()
+                  }
                 </div>
               </div>
             </div>

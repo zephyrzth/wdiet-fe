@@ -22,15 +22,9 @@ const HomePage = () => {
         <Fragment>
             <Navbar hclass={'wpo-site-header-s1'} />
             <Hero />
-            {/* <CoupleSection /> */}
-            {/* <VideoSection /> */}
-            {/* <StorySection /> */}
             <CtaSection />
-            {/* <PortfolioSection /> */}
             <RSVP />
-            {/* <BrideGrooms /> */}
             <EventSection />
-            {/* <PartnerSection /> */}
             <BlogSection />
             <Footer />
             <Scrollbar />

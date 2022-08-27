@@ -102,7 +102,7 @@ const Header2 = (props) => {
               </div>
               <div className="col-lg-2 col-md-2 col-2">
                 <div className="header-right">
-                  <Link className="theme-btn" to="/rsvp"><span className="text">Attend Now</span> <span className="mobile">
+                  <Link className="theme-btn" to="/loing"><span className="text">Attend Now</span> <span className="mobile">
                     <i className="fi flaticon-user"></i>
                   </span></Link>
                 </div>
