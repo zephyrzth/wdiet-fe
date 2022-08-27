@@ -100,7 +100,9 @@ const RestaurantDetails = (props) => {
     return (
         <Fragment>
             <Navbar2 />
-            <EventSection />
+            <EventSection
+                restaurantDetails={restaurantDetails}
+            />
             {renderMenuList()}
             <Footer />
             <Scrollbar />

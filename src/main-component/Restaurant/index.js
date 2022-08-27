@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 import Navbar2 from '../../components/Navbar2';
 import Scrollbar from '../../components/scrollbar'
@@ -8,6 +9,14 @@ import SectionTitle from '../../components/SectionTitle'
 import restaurants from '../../api/restaurants'
 
 const Restaurant = () => {
+    React.useEffect(() => {
+        async function fetchData() {
+            const res = await axios('http://localhost:5001/api/themes/stocks/BBCA?total=4');
+            console.log(res, 'res');
+        }
+        fetchData();
+    }, [])
+
     const renderRestaurantList = () => {
         const ClickHandler = () => {
             window.scrollTo(10, 0);
@@ -27,11 +36,12 @@ const Restaurant = () => {
                                             <div className="thumb">{blog.thumb} </div>
                                         </div>
                                         <div className="wpo-blog-content">
-                                            <h2><Link onClick={ClickHandler} to={`/restaurant/${blog.id}`}>{blog.id}</Link></h2>
+                                            <h2><Link onClick={ClickHandler} to={`/restaurant/${blog.id}`}>{blog.restaurant_name}</Link></h2>
                                             <ul>
-                                                <li><Link onClick={ClickHandler} to={`/restaurant/${blog.id}`}>{blog.id}</Link></li>
-                                                <li>{blog.phone}</li>
+                                                <li><Link onClick={ClickHandler} to={`/restaurant/${blog.id}`}>{blog.phone}</Link></li>
+                                                <li>{blog.address}</li>
                                             </ul>
+                                            <p>{blog.open_time}.00 WIB - {blog.close_time}.00 WIB</p>
                                             <p>{blog.description}</p>
                                             <Link className="read-more" onClick={ClickHandler} to={`/restaurant/${blog.id}`}>Read More..</Link>
                                         </div>
@@ -41,7 +51,7 @@ const Restaurant = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
         )
     }
 
