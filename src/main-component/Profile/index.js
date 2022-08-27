@@ -5,7 +5,7 @@ import PageTitle from '../../components/pagetitle'
 import Navbar2 from '../../components/Navbar2';
 import Scrollbar from '../../components/scrollbar'
 import Footer from '../../components/footer/Footer';
-import about from '../../images/blog/about-widget.jpg'
+import about from '../../images/wediet/profile.jpeg'
 import profile from '../../api/profile'
 
 const ProfilePage = () => {
