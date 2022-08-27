@@ -49,7 +49,7 @@ const Header = (props) => {
               </div>
               <div className="col-lg-2 col-md-6 col-6">
                 <div className="navbar-header">
-                  <NavLink className="navbar-brand logo" to='/'><small>My</small>love<span><i
+                  <NavLink className="navbar-brand logo" to='/'><small>We</small>Diet<span><i
                     className="fi flaticon-dove"></i></span></NavLink>
                 </div>
               </div>

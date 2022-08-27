@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
 
 const CtaSection = (props) => {
     return (
@@ -10,10 +8,8 @@ const CtaSection = (props) => {
             <div className="conatiner-fluid">
                 <div className="wpo-cta-item">
                     <h1>Did you know?</h1>
-                    <h4>90% of diseases comes from the food that we eat. Degenerative diseases such as hypertension, stroke, and diabetes are caused by our poor diet.</h4>
-                    <br>
-                    </br>
-                    <Link to="/home" className="theme-btn-s2">Scan now!</Link>
+                    <h4>90% of diseases comes from the food that we eat.</h4>
+                    <h4>Degenerative diseases such as hypertension, stroke, and diabetes are caused by our poor diet.</h4>
                 </div>
             </div>
         </div>

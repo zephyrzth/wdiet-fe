@@ -32,8 +32,8 @@ const Restaurant = () => {
                                 <div className="col col-lg-4 col-md-6 col-12" key={Bitem}>
                                     <div className="wpo-blog-item">
                                         <div className="wpo-blog-img">
-                                            {/* <img src={blog.screens} alt="" />
-                                            <div className="thumb">{blog.thumb} </div> */}
+                                            <img src={restoBg} alt="" />
+                                            <div className="thumb">{blog.thumb} </div>
                                         </div>
                                         <div className="wpo-blog-content">
                                             <h2><Link onClick={ClickHandler} to={`/restaurant/${blog.id}`}>{blog.restaurant_name}</Link></h2>
