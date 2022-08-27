@@ -8,6 +8,7 @@ import SignUpPage from '../SignUpPage'
 import ForgotPassword from '../ForgotPassword'
 import BlogPage from '../BlogPage'
 import BlogDetails from '../BlogDetails'
+import Restaurant from '../Restaurant'
 
 const AllRoute = () => {
   return (
@@ -22,6 +23,7 @@ const AllRoute = () => {
           <Route path='forgot-password' element={<ForgotPassword />} />
           <Route path='blog' element={<BlogPage />} />
           <Route path='blog-single/:id' element={<BlogDetails />} />
+          <Route path='restaurant' element={<Restaurant />} />
         </Routes>
       </BrowserRouter>
     </div>

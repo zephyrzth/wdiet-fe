@@ -7,8 +7,6 @@ import blogSingleImg1 from "../images/blog/img-4.jpg";
 import blogSingleImg2 from "../images/blog/img-5.jpg";
 import blogSingleImg3 from "../images/blog/img-6.jpg";
 
-
-
 const blogs = [
     {
         id: '1',
@@ -17,10 +15,10 @@ const blogs = [
         description: 'Consectetur adipiscing elit. Bibendum qunulla suspen sed consectetur. Donec porttitor consectetur cras squam sapien massa.',
         author: 'Loura Sweety',
         create_at: '25 Feb 2022',
-        blogSingleImg:blogSingleImg1, 
-        comment:'35',
-        blClass:'format-standard-image',
-        thumb:'Decoration'
+        blogSingleImg: blogSingleImg1,
+        comment: '35',
+        blClass: 'format-standard-image',
+        thumb: 'Decoration'
     },
     {
         id: '2',
@@ -29,10 +27,10 @@ const blogs = [
         description: 'Consectetur adipiscing elit. Bibendum qunulla suspen sed consectetur. Donec porttitor consectetur cras squam sapien massa.',
         author: 'David Luis',
         create_at: '23 Feb 2022',
-        blogSingleImg:blogSingleImg2, 
-        comment:'80',
-        blClass:'format-standard-image',
-        thumb:'Wedding'
+        blogSingleImg: blogSingleImg2,
+        comment: '80',
+        blClass: 'format-standard-image',
+        thumb: 'Wedding'
     },
     {
         id: '3',
@@ -41,10 +39,22 @@ const blogs = [
         description: 'Consectetur adipiscing elit. Bibendum qunulla suspen sed consectetur. Donec porttitor consectetur cras squam sapien massa.',
         author: 'Jenefer Willy',
         create_at: '21 Feb 2022',
-        blogSingleImg:blogSingleImg3,
-        comment:'95',
-        blClass:'format-video',
-        thumb:'Photography'
+        blogSingleImg: blogSingleImg3,
+        comment: '95',
+        blClass: 'format-video',
+        thumb: 'Photography'
+    },
+    {
+        id: '4',
+        title: 'Wedding Photography Idea',
+        screens: blogImg3,
+        description: 'Consectetur adipiscing elit. Bibendum qunulla suspen sed consectetur. Donec porttitor consectetur cras squam sapien massa.',
+        author: 'Jenefer Willy',
+        create_at: '21 Feb 2022',
+        blogSingleImg: blogSingleImg3,
+        comment: '95',
+        blClass: 'format-video',
+        thumb: 'Photography'
     },
 ];
 export default blogs;
