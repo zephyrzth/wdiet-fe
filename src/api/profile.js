@@ -13,19 +13,19 @@ const profile = {
     }, {
         name: "Fats",
         standard_amount: 4000,
-        current_amount: 4500
+        current_amount: 2500
     }, {
         name: "Sodium",
         standard_amount: 4000,
-        current_amount: 4500
+        current_amount: 1500
     }, {
         name: "Cholesterol",
         standard_amount: 4000,
-        current_amount: 4500
+        current_amount: 4001
     }, {
         name: "Sugar",
         standard_amount: 4000,
-        current_amount: 4500
+        current_amount: 500
     }, {
         name: "Carbohydrates",
         standard_amount: 4000,
