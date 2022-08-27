@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import about from '../../images/blog/about-widget.jpg'
 import blogs from '../../api/blogs'
 
@@ -12,41 +12,41 @@ import ins6 from '../../images/instragram/6.jpg'
 
 const insstgram = [
     {
-        insImg:ins1
+        insImg: ins1
     },
     {
-        insImg:ins2
+        insImg: ins2
     },
     {
-        insImg:ins3
+        insImg: ins3
     },
     {
-        insImg:ins4
+        insImg: ins4
     },
     {
-        insImg:ins5
+        insImg: ins5
     },
     {
-        insImg:ins6
+        insImg: ins6
     },
 ]
 
 const BlogSidebar = (props) => {
 
-    const SubmitHandler = (e) =>{
-       e.preventDefault()
+    const SubmitHandler = (e) => {
+        e.preventDefault()
     }
 
-    const ClickHandler = () =>{
+    const ClickHandler = () => {
         window.scrollTo(10, 0);
-     }
+    }
 
-    return(
+    return (
         <div className={`col col-lg-4 col-12 ${props.blLeft}`}>
             <div className="blog-sidebar">
                 <div className="widget about-widget">
                     <div className="img-holder">
-                        <img src={about} alt=""/>
+                        <img src={about} alt="" />
                     </div>
                     <h4>Jenny Watson</h4>
                     <p>Hi! beautiful people. I`m an authtor of this blog. Read our post - stay with us</p>
@@ -64,7 +64,7 @@ const BlogSidebar = (props) => {
                 <div className="widget search-widget">
                     <form onSubmit={SubmitHandler}>
                         <div>
-                            <input type="text" className="form-control" placeholder="Search Post.."/>
+                            <input type="text" className="form-control" placeholder="Search Post.." />
                             <button type="submit"><i className="ti-search"></i></button>
                         </div>
                     </form>
@@ -96,16 +96,6 @@ const BlogSidebar = (props) => {
                         ))}
                     </div>
                 </div>
-                <div className="widget wpo-instagram-widget">
-                    <div className="widget-title">
-                        <h3>Instagram</h3>
-                    </div>
-                    <ul className="d-flex">
-                        {insstgram.map((item, ins) => (
-                            <li key={ins}><img src={item.insImg} alt="" /></li>
-                        ))}
-                    </ul>
-                </div>
                 <div className="widget tag-widget">
                     <h3>Tags</h3>
                     <ul>
@@ -122,8 +112,8 @@ const BlogSidebar = (props) => {
                 </div>
             </div>
         </div>
-     )
-        
+    )
+
 }
 
 export default BlogSidebar;

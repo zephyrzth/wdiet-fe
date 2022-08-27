@@ -1,25 +1,24 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import SectionTitle from '../SectionTitle'
 import blogs from '../../api/blogs'
 
 const BlogSection = (props) => {
-    
-    const ClickHandler = () =>{
+    const ClickHandler = () => {
         window.scrollTo(10, 0);
-     }
+    }
 
-    return(
+    return (
         <section className={`wpo-blog-section section-padding ${props.blogClass}`}>
             <div className="container">
-                <SectionTitle topTitle={'News'} MainTitle={'Read Our Wedding News'}/>
+                <SectionTitle topTitle={'News'} MainTitle={'Healthy Food News'} />
                 <div className="wpo-blog-items">
                     <div className="row">
                         {blogs.map((blog, Bitem) => (
                             <div className="col col-lg-4 col-md-6 col-12" key={Bitem}>
                                 <div className="wpo-blog-item">
                                     <div className="wpo-blog-img">
-                                        <img src={blog.screens} alt=""/>
+                                        <img src={blog.screens} alt="" />
                                         <div className="thumb">{blog.thumb} </div>
                                     </div>
                                     <div className="wpo-blog-content">
@@ -36,7 +35,7 @@ const BlogSection = (props) => {
                         ))}
                     </div>
                 </div>
-            </div> 
+            </div>
         </section>
     )
 }

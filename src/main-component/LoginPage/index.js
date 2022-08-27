@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from '../../components/Navbar'
 
 import './style.scss';
 
@@ -57,6 +58,8 @@ const LoginPage = () => {
     };
 
     return (
+        <>
+        <Navbar hclass={'wpo-site-header-s1'} />
         <Grid className="loginWrapper">
             <Grid className="loginForm">
                 <h2>Sign In</h2>
@@ -124,6 +127,7 @@ const LoginPage = () => {
                 </div>
             </Grid>
         </Grid>
+        </>
     )
 };
 

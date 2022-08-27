@@ -6,9 +6,10 @@ import ErrorPage from '../ErrorPage'
 import LoginPage from '../LoginPage'
 import SignUpPage from '../SignUpPage'
 import ForgotPassword from '../ForgotPassword'
+import BlogPage from '../BlogPage'
+import BlogDetails from '../BlogDetails'
 
 const AllRoute = () => {
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -19,6 +20,8 @@ const AllRoute = () => {
           <Route path='login' element={<LoginPage />} />
           <Route path='register' element={<SignUpPage />} />
           <Route path='forgot-password' element={<ForgotPassword />} />
+          <Route path='blog' element={<BlogPage />} />
+          <Route path='blog-single/:id' element={<BlogDetails />} />
         </Routes>
       </BrowserRouter>
     </div>

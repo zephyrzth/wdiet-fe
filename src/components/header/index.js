@@ -20,15 +20,16 @@ const Header = (props) => {
   );
 
   const renderLogoutButton = () => (
-    <Link
+    <NavLink
       activeClass="active"
       className="theme-btn"
+      to="/"
       onClick={handleOnClickLogoutButton}
       spy={true} smooth={true} duration={500}
     >
       <span className="text">Logout</span><span className="mobile">
         <i className="fi flaticon-user"></i>
-      </span></Link>
+      </span></NavLink>
   )
 
   const renderProfileButton = () => (

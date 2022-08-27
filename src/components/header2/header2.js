@@ -2,12 +2,38 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import MobileMenu2 from '../MobileMenu2/MobileMenu2';
 
-
 const Header2 = (props) => {
-
   const ClickHandler = () => {
     window.scrollTo(10, 0);
   }
+  const initialEmail = sessionStorage.getItem("email");
+  const [email, setEmail] = React.useState(initialEmail)
+
+  const handleOnClickLogoutButton = () => {
+    setEmail('');
+    sessionStorage.removeItem("email");
+  }
+
+  const renderLoginButton = () => (
+    <Link className="theme-btn" to="/login"><span className="text">Login</span> <span className="mobile">
+      <i className="fi flaticon-user"></i>
+    </span></Link>
+  )
+
+  const renderLogoutButton = () => (
+    <Link
+      className="theme-btn" to="/"
+      onClick={handleOnClickLogoutButton}
+    >
+      <span className="text">Logout</span> <span className="mobile">
+        <i className="fi flaticon-user"></i>
+      </span>
+    </Link>
+  )
+
+  const renderProfileButton = () => (
+    <Link onClick={ClickHandler} to="/profile">Profile</Link>
+  )
 
   return (
     <header id="header">
@@ -32,79 +58,25 @@ const Header2 = (props) => {
                   <ul className="nav navbar-nav mb-2 mb-lg-0">
                     <li className="menu-item-has-children">
                       <Link to="/home">Home</Link>
-                      <ul className="sub-menu">
-                        <li><Link onClick={ClickHandler} to="/home">Home style 1</Link></li>
-                        <li><Link onClick={ClickHandler} to="/home2">Home style 2</Link></li>
-                        <li><Link onClick={ClickHandler} to="/home3">Home style 3</Link></li>
-                        <li><Link onClick={ClickHandler} to="/home4">Home Static Hero</Link></li>
-                        <li><Link onClick={ClickHandler} to="/home5">Home Box Style</Link></li>
-                        <li><Link onClick={ClickHandler} to="/home6">Home particles Effect</Link></li>
-                        <li><Link onClick={ClickHandler} to="/home7">Home Video Banar</Link></li>
-                        <li><Link onClick={ClickHandler} to="/invitation">Invitation</Link></li>
-                      </ul>
                     </li>
                     <li>
-                      <Link onClick={ClickHandler} to="/about">About</Link>
-                    </li>
-                    <li className="menu-item-has-children">
-                      <Link onClick={ClickHandler} to="/wedding">Wedding</Link>
-                      <ul className="sub-menu">
-                        <li><Link onClick={ClickHandler} to="/wedding">Wedding</Link></li>
-                        <li><Link onClick={ClickHandler} to="/wedding-details">Wedding Details</Link></li>
-                      </ul>
-                    </li>
-                    <li className="menu-item-has-children">
-                      <Link onClick={ClickHandler} to="/gallery">Gallery</Link>
-                      <ul className="sub-menu">
-                        <li><Link onClick={ClickHandler} to="/gallery">Gallery Style 1</Link></li>
-                        <li><Link onClick={ClickHandler} to="/gallery-s2">Gallery Style 2</Link></li>
-                        <li><Link onClick={ClickHandler} to="/gallery-slide">Gallery Slide</Link></li>
-                      </ul>
+                      <Link onClick={ClickHandler} to="/restaurant">Restaurant</Link>
                     </li>
                     <li>
-                      <Link onClick={ClickHandler} to="/rsvp">RSVP</Link>
+                      <Link onClick={ClickHandler} to="/about">About Us</Link>
                     </li>
                     <li className="menu-item-has-children">
-                      <Link onClick={ClickHandler} to="/story">pages</Link>
-                      <ul className="sub-menu">
-                        <li><Link onClick={ClickHandler} to="/story">Our story</Link></li>
-                        <li><Link onClick={ClickHandler} to="/accomodation">Accomodation</Link></li>
-                        <li><Link onClick={ClickHandler} to="/event">When & Where</Link></li>
-                        <li><Link onClick={ClickHandler} to="/groom-bride">Bridesmaid & Groomsman</Link></li>
-                        <li><Link onClick={ClickHandler} to="/coming">Coming Soon</Link></li>
-                        <li><Link onClick={ClickHandler} to="/404">404 Error</Link></li>
-                        <li><Link onClick={ClickHandler} to="/login">Login</Link></li>
-                        <li><Link onClick={ClickHandler} to="/register">Register</Link></li>
-                      </ul>
-                    </li>
-                    <li className="menu-item-has-children">
-                      <Link onClick={ClickHandler} to="/blog">Blog</Link>
-                      <ul className="sub-menu">
-                        <li><Link onClick={ClickHandler} to="/blog">Blog right sidebar</Link></li>
-                        <li><Link onClick={ClickHandler} to="/blog-left-sidebar">Blog left sidebar</Link></li>
-                        <li><Link onClick={ClickHandler} to="/blog-fullwidth">Blog fullwidth</Link></li>
-                        <li className="menu-item-has-children">
-                          <Link onClick={ClickHandler} to="/">Blog details</Link>
-                          <ul className="sub-menu">
-                            <li><Link onClick={ClickHandler} to="/blog-single/1">Blog details right sidebar</Link>
-                            </li>
-                            <li><Link onClick={ClickHandler} to="/blog-single-left-sidebar/1">Blog details left
-                              sidebar</Link></li>
-                            <li><Link onClick={ClickHandler} to="/blog-single-fullwidth/1">Blog details
-                              fullwidth</Link></li>
-                          </ul>
-                        </li>
-                      </ul>
+                      {email && renderProfileButton()}
                     </li>
                   </ul>
-
                 </div>
               </div>
               <div className="col-lg-2 col-md-2 col-2">
                 <div className="header-right">
-                  <Link className="theme-btn" to="/loing"><span className="text">Attend Now</span> <span className="mobile">
-                    <i className="fi flaticon-user"></i>
-                  </span></Link>
+                  {email
+                    ? renderLogoutButton()
+                    : renderLoginButton()
+                  }
                 </div>
               </div>
             </div>

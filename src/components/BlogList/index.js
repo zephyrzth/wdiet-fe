@@ -1,7 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import BlogSidebar from '../BlogSidebar'
-import VideoModal from '../../components/ModalVideo'
 
 import blogs from '../../api/blogs'
 
@@ -9,21 +8,20 @@ import blogs from '../../api/blogs'
 
 const BlogList = (props) => {
 
-    const ClickHandler = () =>{
+    const ClickHandler = () => {
         window.scrollTo(10, 0);
-     }
+    }
 
-    return(
+    return (
         <section className="wpo-blog-pg-section section-padding">
             <div className="container">
                 <div className="row">
                     <div className={`col col-lg-8 col-12 ${props.blRight}`}>
                         <div className="wpo-blog-content">
-                            {blogs.slice(0,4).map((blog, bitem) => (
-                                <div className={`post  ${blog.blClass}`}key={bitem}>
+                            {blogs.slice(0, 4).map((blog, bitem) => (
+                                <div className={`post  ${blog.blClass}`} key={bitem}>
                                     <div className="entry-media video-holder">
-                                        <img src={blog.blogSingleImg} alt=""/>
-                                        <VideoModal/>
+                                        <img src={blog.blogSingleImg} alt="" />
                                     </div>
                                     <div className="entry-meta">
                                         <ul>
@@ -59,13 +57,13 @@ const BlogList = (props) => {
                             </div>
                         </div>
                     </div>
-                    <BlogSidebar blLeft={props.blLeft}/>
+                    <BlogSidebar blLeft={props.blLeft} />
                 </div>
             </div>
         </section>
 
-     )
-        
+    )
+
 }
 
 export default BlogList;

@@ -50,7 +50,7 @@ const Footer = () => {
                                 </div>
                                 <ul>
                                     <li><Link onClick={ClickHandler} to="/about">About Us</Link></li>
-                                    <li><Link onClick={ClickHandler} to="/blog">Latest News</Link></li>
+                                    <li><Link onClick={ClickHandler} to="/blog">Healthy Food News</Link></li>
                                 </ul>
                             </div>
                         </div>
