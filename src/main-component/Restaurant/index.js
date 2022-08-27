@@ -6,13 +6,13 @@ import Navbar2 from '../../components/Navbar2';
 import Scrollbar from '../../components/scrollbar'
 import Footer from '../../components/footer/Footer';
 import SectionTitle from '../../components/SectionTitle'
-import restaurants from '../../api/restaurants'
 
 const Restaurant = () => {
+    const [restaurants, setRestaurants] = React.useState([]);
     React.useEffect(() => {
         async function fetchData() {
-            const res = await axios('http://localhost:5001/api/themes/stocks/BBCA?total=4');
-            console.log(res, 'res');
+            const res = await axios('http://localhost:8080/restaurants');
+            setRestaurants(res.data)
         }
         fetchData();
     }, [])
@@ -32,8 +32,8 @@ const Restaurant = () => {
                                 <div className="col col-lg-4 col-md-6 col-12" key={Bitem}>
                                     <div className="wpo-blog-item">
                                         <div className="wpo-blog-img">
-                                            <img src={blog.screens} alt="" />
-                                            <div className="thumb">{blog.thumb} </div>
+                                            {/* <img src={blog.screens} alt="" />
+                                            <div className="thumb">{blog.thumb} </div> */}
                                         </div>
                                         <div className="wpo-blog-content">
                                             <h2><Link onClick={ClickHandler} to={`/restaurant/${blog.id}`}>{blog.restaurant_name}</Link></h2>
@@ -42,7 +42,6 @@ const Restaurant = () => {
                                                 <li>{blog.address}</li>
                                             </ul>
                                             <p>{blog.open_time}.00 WIB - {blog.close_time}.00 WIB</p>
-                                            <p>{blog.description}</p>
                                             <Link className="read-more" onClick={ClickHandler} to={`/restaurant/${blog.id}`}>Read More..</Link>
                                         </div>
                                     </div>
