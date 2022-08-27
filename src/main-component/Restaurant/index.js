@@ -27,13 +27,13 @@ const Restaurant = () => {
                                             <div className="thumb">{blog.thumb} </div>
                                         </div>
                                         <div className="wpo-blog-content">
-                                            <h2><Link onClick={ClickHandler} to={`/restaurants/${blog.id}`}>{blog.restaurant_name}</Link></h2>
+                                            <h2><Link onClick={ClickHandler} to={`/restaurant/${blog.id}`}>{blog.id}</Link></h2>
                                             <ul>
-                                                <li><Link onClick={ClickHandler} to={`/restaurants/${blog.id}`}>{blog.author}</Link></li>
+                                                <li><Link onClick={ClickHandler} to={`/restaurant/${blog.id}`}>{blog.id}</Link></li>
                                                 <li>{blog.phone}</li>
                                             </ul>
                                             <p>{blog.description}</p>
-                                            <Link className="read-more" onClick={ClickHandler} to={`/restaurants/${blog.id}`}>Read More..</Link>
+                                            <Link className="read-more" onClick={ClickHandler} to={`/restaurant/${blog.id}`}>Read More..</Link>
                                         </div>
                                     </div>
                                 </div>

@@ -230,12 +230,11 @@ const BlogSingle = (props) => {
                             </div>
                         </div>
                     </div>
-                    <BlogSidebar blLeft={props.blLeft}/>
+                    <BlogSidebar blLeft={props.blLeft} />
                 </div>
             </div>
         </section>
     )
-
 }
 
 export default BlogSingle;
