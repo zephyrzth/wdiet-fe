@@ -2,7 +2,8 @@ import React, { Fragment } from 'react';
 import Navbar2 from '../../components/Navbar2';
 import Scrollbar from '../../components/scrollbar'
 import { useParams } from 'react-router-dom'
-import restaurantDetails from '../../api/restaurantDetails'
+import axios from 'axios';
+// import restaurantDetails from '../../api/restaurantDetails'
 import Footer from '../../components/footer/Footer';
 import EventSection from '../../components/EventSection/EventSection';
 import SectionTitleS2 from '../../components/SectionTitleS2'
@@ -24,11 +25,46 @@ const Style = {
 }
 const RestaurantDetails = (props) => {
     const { id } = useParams()
+    const [restaurantDetails, setRestaurantDetails] = React.useState({});
+
+    React.useEffect(() => {
+        async function fetchData() {
+            const res = await axios(`http://localhost:8080/restaurants/${id}`);
+            setRestaurantDetails(res.data)
+        }
+        fetchData();
+    }, [])
+
     const { menus } = restaurantDetails;
 
-    const mapComposition = (composition) => {
+    const mapNutrients = (nutrient) => {
+        const { name, amount } = nutrient
+        const UNIT = {
+            Calories: 'kcal',
+            Protein: 'gram',
+            Fats: 'gram',
+            Colesterol: 'kcal',
+            Sugar: 'gram',
+            Sodium: 'miligram'
+        }
+
         return (
-            <li style={{ margin: "0px" }}>{composition}</li>
+            <div>
+                {name} : {amount} {UNIT[name]}
+            </div>
+        )
+    }
+
+    const mapComposition = (composition) => {
+        const { name, nutrients } = composition;
+
+        return (
+            <li style={{ margin: "0px" }}>
+                <div>{name}</div>
+                <div>
+                    {nutrients.map(mapNutrients)}
+                </div>
+            </li>
         );
     }
 
@@ -54,21 +90,6 @@ const RestaurantDetails = (props) => {
                         <div style={{ marginLeft: "20px" }}>
                             <ul style={Style.composition}>
                                 {event.compositions.map(mapComposition)}
-                            </ul>
-                        </div>
-                        <div style={Style.boldFont}>
-                            Nutrients:
-                        </div>
-                        <div style={{ marginLeft: "20px" }}>
-                            <ul style={Style.composition}>
-                                <li style={{ margin: "0px" }}>Calori: {event.nutrients.calories}</li>
-                                <li style={{ margin: "0px" }}>Sugar: {event.nutrients.sugar}</li>
-                                <li style={{ margin: "0px" }}>Cholesterol: {event.nutrients.cholesterol}</li>
-                                <li style={{ margin: "0px" }}>Carbohydrates: {event.nutrients.carbohydrates}</li>
-                                <li style={{ margin: "0px" }}>Natrium: {event.nutrients.natrium}</li>
-                                <li style={{ margin: "0px" }}>Sodium: {event.nutrients.sodium}</li>
-                                <li style={{ margin: "0px" }}>Protein: {event.nutrients.protein}</li>
-                                <li style={{ margin: "0px" }}>Fats: {event.nutrients.fats}</li>
                             </ul>
                         </div>
                     </div>
