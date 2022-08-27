@@ -18,7 +18,7 @@ const Footer = () => {
                                     <Link onClick={ClickHandler} className="logo" to="/"><small>My</small>love<span><i
                                         className="fi flaticon-dove"></i></span></Link>
                                 </div>
-                                <p>Blandit ipsum arcu donec auctor a, turpis vitae. Egestas pretium euenim non euoeu dignissim nulla nunc quisque</p>
+                                <p>Help you become more aware about the food that you eat</p>
                                 <ul>
                                     <li>
                                         <Link onClick={ClickHandler} to="/">
@@ -51,8 +51,6 @@ const Footer = () => {
                                 <ul>
                                     <li><Link onClick={ClickHandler} to="/about">About Us</Link></li>
                                     <li><Link onClick={ClickHandler} to="/blog">Latest News</Link></li>
-                                    <li><Link onClick={ClickHandler} to="/accomodation">Accomodation</Link></li>
-                                    <li><Link onClick={ClickHandler} to="/story">Our story</Link></li>
                                 </ul>
                             </div>
                         </div>

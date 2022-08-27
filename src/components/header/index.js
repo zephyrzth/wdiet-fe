@@ -60,7 +60,7 @@ const Header = (props) => {
                       <Link activeClass="active" to="home" spy={true} smooth={true} duration={500} >Home</Link>
                     </li>
                     <li><NavLink activeClass="active" to="/restaurant" spy={true} smooth={true} duration={500} >Restaurant</NavLink></li>
-                    <li><NavLink activeClass="active" to="/about-us" spy={true} smooth={true} duration={500} >About Us</NavLink></li>
+                    <li><NavLink activeClass="active" to="/about" spy={true} smooth={true} duration={500} >About Us</NavLink></li>
                     <li>
                       {email && renderProfileButton()}
                     </li>
