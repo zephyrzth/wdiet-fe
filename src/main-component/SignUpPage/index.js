@@ -1,27 +1,29 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Grid from "@material-ui/core/Grid";
 import SimpleReactValidator from "simple-react-validator";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import {Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 import './style.scss';
 
-const SignUpPage = (props) => {
-
+const SignUpPage = () => {
     const push = useNavigate()
 
     const [value, setValue] = useState({
         email: '',
+        age: '',
+        weight: '',
+        height: '',
         full_name: '',
         password: '',
         confirm_password: '',
     });
 
     const changeHandler = (e) => {
-        setValue({...value, [e.target.name]: e.target.value});
+        setValue({ ...value, [e.target.name]: e.target.value });
         validator.showMessages();
     };
 
@@ -35,13 +37,17 @@ const SignUpPage = (props) => {
         if (validator.allValid()) {
             setValue({
                 email: '',
+                age: '',
+                weight: '',
+                height: '',
                 full_name: '',
                 password: '',
                 confirm_password: '',
             });
             validator.hideMessages();
+            sessionStorage.setItem("email", value.email);
             toast.success('Registration Complete successfully!');
-            push('/login');
+            push('/home');
         } else {
             validator.showMessages();
             toast.error('Empty field is not allowed!');
@@ -49,7 +55,6 @@ const SignUpPage = (props) => {
     };
     return (
         <Grid className="loginWrapper">
-
             <Grid className="loginForm">
                 <h2>Signup</h2>
                 <p>Signup your account</p>
@@ -76,11 +81,62 @@ const SignUpPage = (props) => {
                             <TextField
                                 className="inputOutline"
                                 fullWidth
-                                placeholder="E-mail"
+                                placeholder="Age"
+                                value={value.age}
+                                variant="outlined"
+                                name="age"
+                                label="Age"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                onBlur={(e) => changeHandler(e)}
+                                onChange={(e) => changeHandler(e)}
+                            />
+                            {validator.message('age', value.age, 'required')}
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                className="inputOutline"
+                                fullWidth
+                                placeholder="Height"
+                                value={value.height}
+                                variant="outlined"
+                                name="height"
+                                label="Height (cm)"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                onBlur={(e) => changeHandler(e)}
+                                onChange={(e) => changeHandler(e)}
+                            />
+                            {validator.message('height', value.height, 'required')}
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                className="inputOutline"
+                                fullWidth
+                                placeholder="Weight"
+                                value={value.weight}
+                                variant="outlined"
+                                name="weight"
+                                label="Weight (kg)"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                onBlur={(e) => changeHandler(e)}
+                                onChange={(e) => changeHandler(e)}
+                            />
+                            {validator.message('weight', value.weight, 'required')}
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                className="inputOutline"
+                                fullWidth
+                                placeholder="Email"
                                 value={value.email}
                                 variant="outlined"
                                 name="email"
-                                label="E-mail"
+                                label="Email"
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
@@ -98,6 +154,7 @@ const SignUpPage = (props) => {
                                 variant="outlined"
                                 name="password"
                                 label="Password"
+                                type="password"
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
@@ -111,17 +168,18 @@ const SignUpPage = (props) => {
                                 className="inputOutline"
                                 fullWidth
                                 placeholder="Confirm Password"
-                                value={value.password}
+                                value={value.confirm_password}
                                 variant="outlined"
                                 name="confirm_password"
                                 label="Confirm Password"
+                                type="password"
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
                                 onBlur={(e) => changeHandler(e)}
                                 onChange={(e) => changeHandler(e)}
                             />
-                            {validator.message('confirm password', value.confirm_password, `in:${value.password}`)}
+                            {validator.message('confirm password', value.confirm_password, 'required')}
                         </Grid>
                         <Grid item xs={12}>
                             <Grid className="formFooter">
