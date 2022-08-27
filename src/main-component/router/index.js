@@ -10,12 +10,14 @@ import BlogPage from '../BlogPage'
 import BlogDetails from '../BlogDetails'
 import Restaurant from '../Restaurant'
 import RestaurantDetail from '../RestaurantDetail'
+import AboutPage from '../AboutPage';
 
 const AllRoute = () => {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path='about' element={<AboutPage />} />
           <Route path='/' element={<Homepage />} />
           <Route path='home' element={<Homepage />} />
           <Route path='404' element={<ErrorPage />} />

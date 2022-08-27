@@ -24,25 +24,13 @@ const CoupleSection = (props) => {
                                         <div className="couple-img">
                                             <img src={coupleImg1} alt="" />
                                             <div className="couple-shape">
-                                                <img src={shape3} alt=""/>
+                                                <img src={shape3} alt="" />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-lg-7">
                                         <div className="couple-text">
-                                            <h3>Jenny Wilson</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna orci auctor
-                                                vitae nisl. Erat fringilla pellentesque amet tempus. Commodo mi vitae,
-                                                sed sagittis blandit. Leo netus magna fusce ac turpis mauris maecenas
-                                                non.</p>
-                                            <div className="social">
-                                                <ul>
-                                                    <li><Link to="/"><i className="ti-facebook"></i></Link></li>
-                                                    <li><Link to="/"><i className="ti-twitter-alt"></i></Link></li>
-                                                    <li><Link to="/"><i className="ti-instagram"></i></Link></li>
-                                                    <li><Link to="/"><i className="ti-pinterest"></i></Link></li>
-                                                </ul>
-                                            </div>
+                                            <h3>Anargya Widyadhana</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -51,26 +39,48 @@ const CoupleSection = (props) => {
                                 <div className="row align-items-center">
                                     <div className="col-lg-7 order-lg-1 order-2">
                                         <div className="couple-text">
-                                            <h3>Leslie Alexander</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna orci auctor
-                                                vitae nisl. Erat fringilla pellentesque amet tempus. Commodo mi vitae,
-                                                sed sagittis blandit. Leo netus magna fusce ac turpis mauris maecenas
-                                                non.</p>
-                                            <div className="social">
-                                                <ul>
-                                                    <li><Link to="/"><i className="ti-facebook"></i></Link></li>
-                                                    <li><Link to="/"><i className="ti-twitter-alt"></i></Link></li>
-                                                    <li><Link to="/"><i className="ti-instagram"></i></Link></li>
-                                                    <li><Link to="/"><i className="ti-pinterest"></i></Link></li>
-                                                </ul>
-                                            </div>
+                                            <h3>Andhika Yoga Perdana</h3>
                                         </div>
                                     </div>
                                     <div className="col-lg-4 order-lg-2 order-1">
                                         <div className="couple-img">
                                             <img src={coupleImg2} alt="" />
                                             <div className="couple-shape">
-                                                <img src={shape4} alt=""/>
+                                                <img src={shape4} alt="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="couple-item bride">
+                                <div className="row align-items-center">
+                                    <div className="col-lg-4">
+                                        <div className="couple-img">
+                                            <img src={coupleImg1} alt="" />
+                                            <div className="couple-shape">
+                                                <img src={shape3} alt="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-7">
+                                        <div className="couple-text">
+                                            <h3>Bima Satria Ramadhan</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="couple-item groom">
+                                <div className="row align-items-center">
+                                    <div className="col-lg-7 order-lg-1 order-2">
+                                        <div className="couple-text">
+                                            <h3>Dwi Prasetya Armunanta</h3>
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-4 order-lg-2 order-1">
+                                        <div className="couple-img">
+                                            <img src={coupleImg2} alt="" />
+                                            <div className="couple-shape">
+                                                <img src={shape4} alt="" />
                                             </div>
                                         </div>
                                     </div>
