@@ -2,10 +2,10 @@ import React from 'react';
 import coupleImg1 from '../../images/couple/2.jpg'
 import coupleImg2 from '../../images/couple/3.jpg'
 
-import shape1 from '../../images/couple/shape-1.png'
-import shape2 from '../../images/couple/shape-2.png'
-import shape3 from '../../images/couple/shape-3.png'
-import shape4 from '../../images/couple/shape-4.png'
+import shape1 from '../../images/wediet/profile.jpeg'
+import shape2 from '../../images/wediet/profile.jpeg'
+import shape3 from '../../images/wediet/profile.jpeg'
+import shape4 from '../../images/wediet/profile.jpeg'
 
 const CoupleSection = (props) => {
 
