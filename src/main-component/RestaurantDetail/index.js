@@ -6,7 +6,7 @@ import restaurantDetails from '../../api/restaurantDetails'
 import Footer from '../../components/footer/Footer';
 import EventSection from '../../components/EventSection/EventSection';
 import SectionTitleS2 from '../../components/SectionTitleS2'
-import hImg1 from '../../images/slider/s2.png'
+import hImg1 from '../../images/wediet/menu.jpeg'
 import BlogSidebar from '../../components/BlogSidebar'
 
 const Style = {

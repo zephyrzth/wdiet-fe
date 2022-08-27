@@ -7,6 +7,7 @@ import Scrollbar from '../../components/scrollbar'
 import Footer from '../../components/footer/Footer';
 import SectionTitle from '../../components/SectionTitle'
 import restaurants from '../../api/restaurants'
+import restoBg from '../../images/wediet/restaurant.jpg'
 
 const Restaurant = () => {
     React.useEffect(() => {
@@ -32,7 +33,7 @@ const Restaurant = () => {
                                 <div className="col col-lg-4 col-md-6 col-12" key={Bitem}>
                                     <div className="wpo-blog-item">
                                         <div className="wpo-blog-img">
-                                            <img src={blog.screens} alt="" />
+                                            <img src={restoBg} alt="" />
                                             <div className="thumb">{blog.thumb} </div>
                                         </div>
                                         <div className="wpo-blog-content">
