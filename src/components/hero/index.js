@@ -6,7 +6,7 @@ import shape2 from '../../images/slider/flower1.png'
 import shape3 from '../../images/slider/flower2.png'
 
 
-const Hero = (props) => {
+const Hero = () => {
     return (
         <section className="static-hero" id='home'>
             <div className="hero-container">

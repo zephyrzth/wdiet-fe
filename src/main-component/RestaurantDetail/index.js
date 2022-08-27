@@ -3,7 +3,6 @@ import Navbar2 from '../../components/Navbar2';
 import Scrollbar from '../../components/scrollbar'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
-// import restaurantDetails from '../../api/restaurantDetails'
 import Footer from '../../components/footer/Footer';
 import EventSection from '../../components/EventSection/EventSection';
 import SectionTitleS2 from '../../components/SectionTitleS2'
@@ -26,17 +25,15 @@ const Style = {
 const RestaurantDetails = (props) => {
     const { id } = useParams()
     const [restaurantDetails, setRestaurantDetails] = React.useState({});
-
+    const [menus, setMenus] = React.useState([]);
     React.useEffect(() => {
         async function fetchData() {
             const res = await axios(`http://localhost:8080/restaurants/${id}`);
             setRestaurantDetails(res.data)
+            setMenus(res.data.menus)
         }
         fetchData();
     }, [])
-
-    const { menus } = restaurantDetails;
-
     const mapNutrients = (nutrient) => {
         const { name, amount } = nutrient
         const UNIT = {

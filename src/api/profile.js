@@ -1,7 +1,3 @@
-import blogImg1 from "../images/blog/img-1.jpg";
-
-import blogSingleImg1 from "../images/blog/img-4.jpg";
-
 const profile = {
     id: '1',
     name: 'Jacky Chan',

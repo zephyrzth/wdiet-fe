@@ -1,35 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import about from '../../images/blog/about-widget.jpg'
 import blogs from '../../api/blogs'
-
-import ins1 from '../../images/instragram/1.jpg'
-import ins2 from '../../images/instragram/2.jpg'
-import ins3 from '../../images/instragram/3.jpg'
-import ins4 from '../../images/instragram/4.jpg'
-import ins5 from '../../images/instragram/5.jpg'
-import ins6 from '../../images/instragram/6.jpg'
-
-const insstgram = [
-    {
-        insImg: ins1
-    },
-    {
-        insImg: ins2
-    },
-    {
-        insImg: ins3
-    },
-    {
-        insImg: ins4
-    },
-    {
-        insImg: ins5
-    },
-    {
-        insImg: ins6
-    },
-]
 
 const BlogSidebar = (props) => {
 
