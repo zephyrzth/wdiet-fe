@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react';
-import Navbar from '../../components/Navbar'
-import Hero from '../../components/hero'
+import Navbar2 from '../../components/Navbar2';
+import Hero5 from '../../components/hero5/Hero5';
 import Scrollbar from '../../components/scrollbar'
-import RSVP from '../../components/RSVP';
 import CtaSection from '../../components/CtaSection/CtaSection';
 import EventSection from '../../components/EventSection/EventSection';
 import BlogSection from '../../components/BlogSection/BlogSection';
@@ -12,10 +11,9 @@ const HomePage = () => {
 
     return (
         <Fragment>
-            <Navbar hclass={'wpo-site-header-s1'} />
-            <Hero />
+            <Navbar2 />
+            <Hero5 />
             <CtaSection />
-            <RSVP />
             <EventSection />
             <BlogSection />
             <Footer />

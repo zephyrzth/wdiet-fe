@@ -1,17 +1,15 @@
 import React from 'react'
-import TimeCountDown from '../countdown';
 
-
-const Hero5 = (props) => {
+const Hero5 = () => {
     return (
         <section className="wpo-hero-style-4">
             <div className="wedding-announcement">
                 <div className="couple-text">
-                    <h2>Margrate & Daniel</h2>
-                    <p >We Are Getting Married Dec 8, 2022</p>
+                    <h2>Wediet</h2>
+                    <p >We will help you become more aware about the food that you eat.</p>
                     <div className="wpo-wedding-date">
                         <div className="clock-grids">
-                            <TimeCountDown/>
+
                         </div>
                     </div>
                 </div>
