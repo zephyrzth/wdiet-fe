@@ -59,6 +59,20 @@ const ProfilePage = () => {
         )
     }
 
+    const mapRecomendations = (recomendation) => {
+        const { name, distance, amount } = recomendation;
+        return (
+            <div className='row'>
+                <div className='col col-3' style={{ textAlign: "left" }}>
+                    {name}
+                </div>
+                <div className='col col-9' style={{ textAlign: "left" }}>
+                    : {distance} km (burn {amount} kal)
+                </div>
+            </div>
+        )
+    }
+
     const renderContent = () => (
         <div
             className='row d-flex align-items-center justify-content-center'
@@ -119,6 +133,13 @@ const ProfilePage = () => {
                         </div>
                         <br />
                         {profile.reports.map(renderReport)}
+                    </div>
+
+                    <div className="widget about-widget">
+                        <h4>Recommendations</h4>
+                        <br />
+                        {profile.recommendations.map(mapRecomendations)}
+                        <br />
                     </div>
                 </div>
             </div>
