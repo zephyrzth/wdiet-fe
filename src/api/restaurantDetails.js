@@ -12,36 +12,19 @@ const restaurantDetails = {
         title: "Soto Daging",
         price: 30000,
         description: "Nasi soto dengan daging sapi",
-        compositions: [
-            "nasi", "daging sapi", "penyedap", "bumbu soto", "usus sapi", "paru sapi"
-        ],
-        nutrients: {
-            calories: "500 kkal",
-            sugar: "80 g",
-            cholesterol: "200 g",
-            carbohydrates: "150 g",
-            fatsnatrium: "50 g",
-            sodium: "20 g",
-            protein: "10 g",
-            fats: "10 g"
-        }
-    }, {
-        title: "Soto Daging",
-        price: 30000,
-        description: "Nasi soto dengan daging sapi",
-        compositions: [
-            "nasi", "daging sapi", "penyedap", "bumbu soto", "usus sapi", "paru sapi"
-        ],
-        nutrients: {
-            calories: "500 kkal",
-            sugar: "80 g",
-            cholesterol: "200 g",
-            carbohydrates: "150 g",
-            fatsnatrium: "50 g",
-            sodium: "20 g",
-            protein: "10 g",
-            fats: "10 g"
-        }
+        compositions: [{
+            name: "Gurame fish",
+            nutrients: [{
+                name: "Calories",
+                amount: 70
+            }, {
+                name: "Protein",
+                amount: 100
+            }, {
+                name: "Fats",
+                amount: 10
+            }]
+        }]
     }]
 };
 

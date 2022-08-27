@@ -16,15 +16,14 @@ const EventSection = (props) => {
             open_time,
             close_time,
             phone,
-            address,
-            description
+            address
         }
     } = props;
 
     const renderMosqueIcon = () => (
         <img
             src={mosque}
-            class="border-4 float-start img-fluid" alt=""
+            className="border-4 float-start img-fluid" alt=""
             style={{ width: "27px" }}
         />
     )
@@ -32,7 +31,7 @@ const EventSection = (props) => {
     const renderOutdoorIcon = () => (
         <img
             src={wifi}
-            class="border-4 float-start img-fluid" alt=""
+            className="border-4 float-start img-fluid" alt=""
             style={{ width: "27px" }}
         />
     )
@@ -40,7 +39,7 @@ const EventSection = (props) => {
     const renderWifiIcon = () => (
         <img
             src={outdoor}
-            class="border-4 float-start img-fluid" alt=""
+            className="border-4 float-start img-fluid" alt=""
             style={{ width: "27px" }}
         />
     )
@@ -58,7 +57,7 @@ const EventSection = (props) => {
                                     <ul>
                                         <li>{open_time}.00 WIB - {close_time}.00 WIB</li>
                                         <li>{address} || {phone}</li>
-                                        <li>{description}</li>
+                                        <li>Seafood restaurant</li>
                                         <li>
                                             <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
                                                 {is_mushola && renderMosqueIcon()}

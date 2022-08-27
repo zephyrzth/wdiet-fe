@@ -11,7 +11,6 @@ const restaurants = [{
     close_time: 23,
     phone: "+628328372832",
     address: "Jl Pahlawan",
-    description: "testing",
     screens: blogImg1,
     thumb: "abc",
     blogSingleImg: blogSingleImg1,

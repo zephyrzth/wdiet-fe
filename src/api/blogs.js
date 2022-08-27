@@ -1,4 +1,3 @@
-// images
 import blogImg1 from "../images/blog/img-1.jpg";
 import blogImg2 from "../images/blog/img-2.jpg";
 import blogImg3 from "../images/blog/img-3.jpg";
@@ -57,4 +56,5 @@ const blogs = [
         thumb: 'Photography'
     },
 ];
+
 export default blogs;

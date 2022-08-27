@@ -6,14 +6,13 @@ import Navbar2 from '../../components/Navbar2';
 import Scrollbar from '../../components/scrollbar'
 import Footer from '../../components/footer/Footer';
 import SectionTitle from '../../components/SectionTitle'
-import restaurants from '../../api/restaurants'
-import restoBg from '../../images/wediet/restaurant.jpg'
 
 const Restaurant = () => {
+    const [restaurants, setRestaurants] = React.useState([]);
     React.useEffect(() => {
         async function fetchData() {
-            const res = await axios('http://localhost:5001/api/themes/stocks/BBCA?total=4');
-            console.log(res, 'res');
+            const res = await axios('http://localhost:8080/restaurants');
+            setRestaurants(res.data)
         }
         fetchData();
     }, [])
@@ -43,7 +42,6 @@ const Restaurant = () => {
                                                 <li>{blog.address}</li>
                                             </ul>
                                             <p>{blog.open_time}.00 WIB - {blog.close_time}.00 WIB</p>
-                                            <p>{blog.description}</p>
                                             <Link className="read-more" onClick={ClickHandler} to={`/restaurant/${blog.id}`}>Read More..</Link>
                                         </div>
                                     </div>

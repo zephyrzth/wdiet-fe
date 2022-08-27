@@ -4,7 +4,7 @@ import shape1 from '../../images/slider/shape.png'
 import shape2 from '../../images/slider/shape2.png'
 
 
-const Hero2 = (props) => {
+const Hero2 = () => {
     return (
         <section className="static-hero-s2" id='home'>
             <div className="hero-container">
