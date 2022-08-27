@@ -12,6 +12,7 @@ import Restaurant from '../Restaurant'
 import RestaurantDetail from '../RestaurantDetail'
 import AboutPage from '../AboutPage';
 import Profile from '../Profile';
+import QRCodePage from '../QRCodePage';
 
 const AllRoute = () => {
   return (
@@ -30,6 +31,7 @@ const AllRoute = () => {
           <Route path='restaurant' element={<Restaurant />} />
           <Route path='restaurant/:id' element={<RestaurantDetail />} />
           <Route path='profile' element={<Profile />} />
+          <Route path='qr-code' element={<QRCodePage />} />
         </Routes>
       </BrowserRouter>
     </div>
