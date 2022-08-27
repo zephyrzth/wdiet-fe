@@ -1,12 +1,15 @@
 import React, { Fragment } from 'react';
-import Navbar2 from '../../components/Navbar2';
-import Scrollbar from '../../components/scrollbar'
+import { toast } from "react-toastify";
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
+
+import Navbar2 from '../../components/Navbar2';
+import Scrollbar from '../../components/scrollbar'
 import Footer from '../../components/footer/Footer';
 import EventSection from '../../components/EventSection/EventSection';
 import SectionTitleS2 from '../../components/SectionTitleS2'
 import hImg1 from '../../images/wediet/menu.jpeg'
+import addIcon from '../../images/icon/add.png'
 import BlogSidebar from '../../components/BlogSidebar'
 
 const Style = {
@@ -22,10 +25,12 @@ const Style = {
         fontWeight: "bold"
     }
 }
+
 const RestaurantDetails = (props) => {
     const { id } = useParams()
     const [restaurantDetails, setRestaurantDetails] = React.useState({});
     const [menus, setMenus] = React.useState([]);
+
     React.useEffect(() => {
         async function fetchData() {
             const res = await axios(`http://localhost:8080/restaurants/${id}`);
@@ -34,6 +39,11 @@ const RestaurantDetails = (props) => {
         }
         fetchData();
     }, [])
+
+    const onClickMenu = (title) => {
+        toast.success(`Success add ${title} to your daily menu!`);
+    };
+
     const mapNutrients = (nutrient) => {
         const { name, amount } = nutrient
         const UNIT = {
@@ -88,6 +98,9 @@ const RestaurantDetails = (props) => {
                             <ul style={Style.composition}>
                                 {event.compositions.map(mapComposition)}
                             </ul>
+                        </div>
+                        <div style={{ display: "flex", justifyContent: "center" }}>
+                            <img src={addIcon} alt='' width={60} onClick={() => onClickMenu(event.title)} style={{ cursor: "pointer" }} />
                         </div>
                     </div>
                 </div>

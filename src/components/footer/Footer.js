@@ -15,7 +15,7 @@ const Footer = () => {
                         <div className="col col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                             <div className="widget about-widget">
                                 <div className="widget-title">
-                                    <Link onClick={ClickHandler} className="logo" to="/"><small>My</small>love<span><i
+                                    <Link onClick={ClickHandler} className="logo" to="/"><small>We</small>Diet<span><i
                                         className="fi flaticon-dove"></i></span></Link>
                                 </div>
                                 <p>Help you become more aware about the food that you eat</p>

@@ -6,6 +6,7 @@ import Navbar2 from '../../components/Navbar2';
 import Scrollbar from '../../components/scrollbar'
 import Footer from '../../components/footer/Footer';
 import SectionTitle from '../../components/SectionTitle'
+import restoBg from '../../images/wediet/restaurant.jpg'
 
 const Restaurant = () => {
     const [restaurants, setRestaurants] = React.useState([]);
@@ -33,7 +34,7 @@ const Restaurant = () => {
                                     <div className="wpo-blog-item">
                                         <div className="wpo-blog-img">
                                             <img src={restoBg} alt="" />
-                                            <div className="thumb">{blog.thumb} </div>
+                                            <div className="thumb">{blog.restaurant_name}</div>
                                         </div>
                                         <div className="wpo-blog-content">
                                             <h2><Link onClick={ClickHandler} to={`/restaurant/${blog.id}`}>{blog.restaurant_name}</Link></h2>

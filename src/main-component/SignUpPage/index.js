@@ -6,7 +6,6 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { Link, useNavigate } from "react-router-dom";
 
-
 import './style.scss';
 
 const SignUpPage = () => {
@@ -20,6 +19,7 @@ const SignUpPage = () => {
         full_name: '',
         password: '',
         confirm_password: '',
+        gender: ''
     });
 
     const changeHandler = (e) => {
@@ -127,6 +127,23 @@ const SignUpPage = () => {
                                 onChange={(e) => changeHandler(e)}
                             />
                             {validator.message('weight', value.weight, 'required')}
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                className="inputOutline"
+                                fullWidth
+                                placeholder="Gender"
+                                value={value.gender}
+                                variant="outlined"
+                                name="gender"
+                                label="Gender (L/P)"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                onBlur={(e) => changeHandler(e)}
+                                onChange={(e) => changeHandler(e)}
+                            />
+                            {validator.message('gender', value.gender, 'required')}
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
