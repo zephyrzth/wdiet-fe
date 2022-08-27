@@ -11,6 +11,7 @@ import BlogDetails from '../BlogDetails'
 import Restaurant from '../Restaurant'
 import RestaurantDetail from '../RestaurantDetail'
 import AboutPage from '../AboutPage';
+import Profile from '../Profile';
 
 const AllRoute = () => {
   return (
@@ -28,6 +29,7 @@ const AllRoute = () => {
           <Route path='blog-single/:id' element={<BlogDetails />} />
           <Route path='restaurant' element={<Restaurant />} />
           <Route path='restaurant/:id' element={<RestaurantDetail />} />
+          <Route path='profile' element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>
