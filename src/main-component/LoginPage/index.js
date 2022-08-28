@@ -14,8 +14,8 @@ import './style.scss';
 const LoginPage = () => {
     const push = useNavigate()
     const [value, setValue] = useState({
-        email: 'user@gmail.com',
-        password: '123456',
+        email: 'lagi@lagi.com',
+        password: 'dhana123',
     });
 
     const changeHandler = (e) => {
@@ -48,9 +48,9 @@ const LoginPage = () => {
             if (email.match(userRegex)) {
                 sessionStorage.setItem("email", email);
                 toast.success('successfully Login on Wediet!');
-                await onSubmitLogin();
-                // push('/home');
             }
+            await onSubmitLogin();
+            push('/home');
         } else {
             validator.showMessages();
             toast.error('Empty field is not allowed!');
