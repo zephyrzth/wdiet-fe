@@ -12,7 +12,7 @@ const ProfilePage = () => {
     const [profile, setProfile] = React.useState({});
     const [reports, setReports] = React.useState([]);
     const [recommendations, setRecommendations] = React.useState([]);
-    const id = '630a9ca6ee8b579f0f7192a0';
+    const id = sessionStorage.getItem("id");
     const isRecomendationsExist = recommendations.length > 0;
 
     React.useEffect(() => {
@@ -107,7 +107,10 @@ const ProfilePage = () => {
                 <div className="blog-sidebar">
                     <div className="widget about-widget">
                         <div className="img-holder">
-                            <img src={about} alt="" />
+                            <img src={about} alt="" style={{
+                                borderRadius: "0%",
+                                width: "50%"
+                            }} />
                         </div>
                         <h4>{profile.name}</h4>
                         <h3>{profile.email}</h3>
@@ -162,7 +165,7 @@ const ProfilePage = () => {
                     {isRecomendationsExist && renderRecomendations()}
                 </div>
             </div>
-        </div>
+        </div >
     )
 
     return (

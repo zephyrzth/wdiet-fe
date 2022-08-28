@@ -40,7 +40,15 @@ const RestaurantDetails = (props) => {
         fetchData();
     }, [])
 
-    const onClickMenu = (title) => {
+    const onClickMenu = async (title, menuId) => {
+        const userId = sessionStorage.getItem("id");
+        const payload = {
+            id: userId,
+            menu_id: menuId,
+            quantity: 1
+        }
+        const res = await axios.post('http://localhost:8080/usermenu', payload);
+        toast.warning(`${res.data.message}`);
         toast.success(`Success add ${title} to your daily menu!`);
     };
 
@@ -100,7 +108,7 @@ const RestaurantDetails = (props) => {
                             </ul>
                         </div>
                         <div style={{ display: "flex", justifyContent: "center" }}>
-                            <img src={addIcon} alt='' width={60} onClick={() => onClickMenu(event.title)} style={{ cursor: "pointer" }} />
+                            <img src={addIcon} alt='' width={60} onClick={() => onClickMenu(event.title, event.id)} style={{ cursor: "pointer" }} />
                         </div>
                     </div>
                 </div>

@@ -12,7 +12,7 @@ const Restaurant = () => {
     const [restaurants, setRestaurants] = React.useState([]);
     React.useEffect(() => {
         async function fetchData() {
-            const res = await axios('http://localhost:8080/restaurants');
+            const res = await axios.get('http://localhost:8080/restaurants');
             setRestaurants(res.data)
         }
         fetchData();
