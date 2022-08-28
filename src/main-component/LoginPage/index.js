@@ -4,9 +4,9 @@ import SimpleReactValidator from "simple-react-validator";
 import { toast } from "react-toastify";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios'
+
 import Navbar from '../../components/Navbar'
 
 import './style.scss';
@@ -16,7 +16,6 @@ const LoginPage = () => {
     const [value, setValue] = useState({
         email: 'user@gmail.com',
         password: '123456',
-        remember: false,
     });
 
     const changeHandler = (e) => {
@@ -24,21 +23,22 @@ const LoginPage = () => {
         validator.showMessages();
     };
 
-    const rememberHandler = () => {
-        setValue({ ...value, remember: !value.remember });
-    };
+    const onSubmitLogin = async () => {
+        const res = await axios.post('http://localhost:8080/login', value);
+        console.log(res, 'res')
+        sessionStorage.setItem("id", res.data.id);
+    }
 
     const [validator] = React.useState(new SimpleReactValidator({
         className: 'errorMessage'
     }));
 
-    const submitForm = (e) => {
+    const submitForm = async (e) => {
         e.preventDefault();
         if (validator.allValid()) {
             setValue({
                 email: '',
                 password: '',
-                remember: false
             });
             validator.hideMessages();
 
@@ -48,7 +48,8 @@ const LoginPage = () => {
             if (email.match(userRegex)) {
                 sessionStorage.setItem("email", email);
                 toast.success('successfully Login on Wediet!');
-                push('/home');
+                await onSubmitLogin();
+                // push('/home');
             }
         } else {
             validator.showMessages();
@@ -101,13 +102,6 @@ const LoginPage = () => {
                                 {validator.message('password', value.password, 'required')}
                             </Grid>
                             <Grid item xs={12}>
-                                <Grid className="formAction">
-                                    <FormControlLabel
-                                        control={<Checkbox checked={value.remember} onChange={rememberHandler} />}
-                                        label="Remember Me"
-                                    />
-                                    <Link to="/forgot-password">Forgot Password?</Link>
-                                </Grid>
                                 <Grid className="formFooter">
                                     <Button fullWidth className="cBtnTheme" type="submit">Login</Button>
                                 </Grid>
