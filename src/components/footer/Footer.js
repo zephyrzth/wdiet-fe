@@ -50,7 +50,6 @@ const Footer = () => {
                                 </div>
                                 <ul>
                                     <li><Link onClick={ClickHandler} to="/about">About Us</Link></li>
-                                    <li><Link onClick={ClickHandler} to="/blog">Healthy Food News</Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -61,10 +60,7 @@ const Footer = () => {
                                 </div>
                                 <div className="contact-ft">
                                     <ul>
-                                        <li><i className="fi flaticon-email"></i>Wediet@gmail.com</li>
-                                        <li><i className="fi flaticon-phone-call"></i>+888 (123) 869523</li>
-                                        <li><i className="fi flaticon-maps-and-flags"></i>New York – 1075 Firs Avenue
-                                        </li>
+                                        <li><i className="fi flaticon-email"></i>wediet@gmail.com</li>
                                     </ul>
                                 </div>
                             </div>
@@ -76,7 +72,7 @@ const Footer = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col col-xs-12">
-                            <p className="copyright"> &copy; 2022 Wediet</p>
+                            <p className="copyright"> &copy; 2022 WeDiet</p>
                         </div>
                     </div>
                 </div>

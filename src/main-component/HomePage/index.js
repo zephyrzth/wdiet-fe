@@ -70,7 +70,6 @@ const HomePage = (props) => {
             <Hero5 />
             <CtaSection />
             {renderInformation()}
-            <BlogSection />
             <Footer />
             <Scrollbar />
         </Fragment>
