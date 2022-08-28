@@ -20,6 +20,11 @@ const menus = [
         id: 3,
         title: 'About',
         link: '/about',
+    },
+    {
+        id: 4,
+        title: 'Profile',
+        link: '/profile',
     }
 ]
 
@@ -43,11 +48,11 @@ const MobileMenu = () => {
                 <ul className="responsivemenu">
                     {menus.map((item, mn) => {
                         return (
-                            <ListItem className={item.id === openId ? 'active' : null}  key={mn}>
+                            <ListItem className={item.id === openId ? 'active' : null} key={mn}>
                                 {item.submenu ?
                                     <Fragment>
                                         <p onClick={() => setOpenId(item.id === openId ? 0 : item.id)}>{item.title}
-                                          <i className={item.id === openId ? 'fa fa-angle-up' : 'fa fa-angle-down'}></i>
+                                            <i className={item.id === openId ? 'fa fa-angle-up' : 'fa fa-angle-down'}></i>
                                         </p>
                                         <Collapse in={item.id === openId} timeout="auto" unmountOnExit>
                                             <List className="subMenu">
