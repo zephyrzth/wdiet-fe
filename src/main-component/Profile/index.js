@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import axios from 'axios'
 import ProgressBar from "@ramonak/react-progress-bar";
 
 import PageTitle from '../../components/pagetitle'
@@ -6,9 +7,24 @@ import Navbar2 from '../../components/Navbar2';
 import Scrollbar from '../../components/scrollbar'
 import Footer from '../../components/footer/Footer';
 import about from '../../images/wediet/profile.jpeg'
-import profile from '../../api/profile'
 
 const ProfilePage = () => {
+    const [profile, setProfile] = React.useState({});
+    const [reports, setReports] = React.useState([]);
+    const [recommendations, setRecommendations] = React.useState([]);
+    const id = '630a9ca6ee8b579f0f7192a0';
+    const isRecomendationsExist = recommendations.length > 0;
+
+    React.useEffect(() => {
+        async function fetchData() {
+            const res = await axios.get(`http://localhost:8080/profile/${id}`);
+            setProfile(res.data)
+            setReports(res.data.reports)
+            setRecommendations(res.data.recommendations)
+        }
+        fetchData();
+    }, [])
+
     const ActivationStatus = [
         'Very rarely exercise',
         'Infrequent exercise (1-3 times per week)',
@@ -36,7 +52,7 @@ const ProfilePage = () => {
             <div>
                 <div>{name}</div>
                 <ProgressBar
-                    completed={completed}
+                    completed={Math.ceil(completed)}
                     bgColor={BarColor[name]}
                 />
                 <div className='row'>
@@ -73,6 +89,15 @@ const ProfilePage = () => {
         )
     }
 
+    const renderRecomendations = () => (
+        <div className="widget about-widget">
+            <h4>Recommendations</h4>
+            <br />
+            {recommendations.map(mapRecomendations)}
+            <br />
+        </div>
+    )
+
     const renderContent = () => (
         <div
             className='row d-flex align-items-center justify-content-center'
@@ -84,7 +109,7 @@ const ProfilePage = () => {
                         <div className="img-holder">
                             <img src={about} alt="" />
                         </div>
-                        <h4>{profile.user_name}</h4>
+                        <h4>{profile.name}</h4>
                         <h3>{profile.email}</h3>
                         <div className='row'>
                             <div className='col col-3' style={{ textAlign: "left" }}>
@@ -132,15 +157,9 @@ const ProfilePage = () => {
                             </div>
                         </div>
                         <br />
-                        {profile.reports.map(renderReport)}
+                        {reports.map(renderReport)}
                     </div>
-
-                    <div className="widget about-widget">
-                        <h4>Recommendations</h4>
-                        <br />
-                        {profile.recommendations.map(mapRecomendations)}
-                        <br />
-                    </div>
+                    {isRecomendationsExist && renderRecomendations()}
                 </div>
             </div>
         </div>

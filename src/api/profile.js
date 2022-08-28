@@ -1,5 +1,5 @@
 const profile = {
-    user_name: "Dhana",
+    name: "Dhana",
     email: "dhana@gmail.com",
     age: 22,
     gender: "Male",
