@@ -13,7 +13,6 @@ const Hero5 = () => {
 
                         </div>
                     </div>
-                    <Link to="/home" className="theme-btn-s2">Scan now!</Link>
                 </div>
             </div>
         </section>
