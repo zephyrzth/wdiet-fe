@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 import './style.scss';
 
@@ -13,14 +14,19 @@ const SignUpPage = () => {
 
     const [value, setValue] = useState({
         email: '',
-        age: '',
-        weight: '',
-        height: '',
-        full_name: '',
+        age: 22,
+        weight: 65,
+        height: 170,
+        name: '',
         password: '',
         confirm_password: '',
-        gender: ''
+        gender: 'Male',
+        exercise_status: 3
     });
+
+    const onSubmitRegister = async () => {
+        await axios.post('http://localhost:8080/register', value);
+    }
 
     const changeHandler = (e) => {
         setValue({ ...value, [e.target.name]: e.target.value });
@@ -32,7 +38,7 @@ const SignUpPage = () => {
     }));
 
 
-    const submitForm = (e) => {
+    const submitForm = async (e) => {
         e.preventDefault();
         if (validator.allValid()) {
             setValue({
@@ -40,14 +46,15 @@ const SignUpPage = () => {
                 age: '',
                 weight: '',
                 height: '',
-                full_name: '',
+                name: '',
                 password: '',
                 confirm_password: '',
             });
             validator.hideMessages();
             sessionStorage.setItem("email", value.email);
+            await onSubmitRegister();
             toast.success('Registration Complete successfully!');
-            push('/home');
+            push('/login');
         } else {
             validator.showMessages();
             toast.error('Empty field is not allowed!');
@@ -65,9 +72,9 @@ const SignUpPage = () => {
                                 className="inputOutline"
                                 fullWidth
                                 placeholder="Full Name"
-                                value={value.full_name}
+                                value={value.name}
                                 variant="outlined"
-                                name="full_name"
+                                name="name"
                                 label="Name"
                                 InputLabelProps={{
                                     shrink: true,
@@ -75,13 +82,14 @@ const SignUpPage = () => {
                                 onBlur={(e) => changeHandler(e)}
                                 onChange={(e) => changeHandler(e)}
                             />
-                            {validator.message('full name', value.full_name, 'required|alpha')}
+                            {validator.message('full name', value.name, 'required')}
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
                                 className="inputOutline"
                                 fullWidth
                                 placeholder="Age"
+                                type="number"
                                 value={value.age}
                                 variant="outlined"
                                 name="age"
@@ -92,7 +100,6 @@ const SignUpPage = () => {
                                 onBlur={(e) => changeHandler(e)}
                                 onChange={(e) => changeHandler(e)}
                             />
-                            {validator.message('age', value.age, 'required')}
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
@@ -101,6 +108,7 @@ const SignUpPage = () => {
                                 placeholder="Height"
                                 value={value.height}
                                 variant="outlined"
+                                type="number"
                                 name="height"
                                 label="Height (cm)"
                                 InputLabelProps={{
@@ -109,7 +117,6 @@ const SignUpPage = () => {
                                 onBlur={(e) => changeHandler(e)}
                                 onChange={(e) => changeHandler(e)}
                             />
-                            {validator.message('height', value.height, 'required')}
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
@@ -117,6 +124,7 @@ const SignUpPage = () => {
                                 fullWidth
                                 placeholder="Weight"
                                 value={value.weight}
+                                type="number"
                                 variant="outlined"
                                 name="weight"
                                 label="Weight (kg)"
@@ -126,7 +134,6 @@ const SignUpPage = () => {
                                 onBlur={(e) => changeHandler(e)}
                                 onChange={(e) => changeHandler(e)}
                             />
-                            {validator.message('weight', value.weight, 'required')}
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
@@ -136,7 +143,7 @@ const SignUpPage = () => {
                                 value={value.gender}
                                 variant="outlined"
                                 name="gender"
-                                label="Gender (L/P)"
+                                label="Gender (Male/Female)"
                                 InputLabelProps={{
                                     shrink: true,
                                 }}

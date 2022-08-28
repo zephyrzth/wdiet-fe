@@ -25,7 +25,6 @@ const LoginPage = () => {
 
     const onSubmitLogin = async () => {
         const res = await axios.post('http://localhost:8080/login', value);
-        console.log(res, 'res')
         sessionStorage.setItem("id", res.data.id);
     }
 
@@ -41,14 +40,10 @@ const LoginPage = () => {
                 password: '',
             });
             validator.hideMessages();
-
-            const userRegex = /^user+.*/gm;
             const email = value.email;
 
-            if (email.match(userRegex)) {
-                sessionStorage.setItem("email", email);
-                toast.success('successfully Login on Wediet!');
-            }
+            sessionStorage.setItem("email", email);
+            toast.success('successfully Login on Wediet!');
             await onSubmitLogin();
             push('/home');
         } else {
